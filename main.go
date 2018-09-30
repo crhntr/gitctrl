@@ -14,5 +14,7 @@ func main() {
 	switch command {
 	case "statuses":
 		statuses(wd)
+	case "remote-origin-must-ssh":
+		remoteOriginMustSSH(wd)
 	}
 }
