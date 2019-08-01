@@ -14,7 +14,7 @@ import (
 	"gopkg.in/src-d/go-git.v4/plumbing/object"
 )
 
-func multibranchedit(repoPath *string, server bool) {
+func multibranchviewfile(repoPath *string, server bool) {
 	fmt.Println(*repoPath)
 	repo, err := git.PlainOpen(*repoPath)
 	if err != nil {
