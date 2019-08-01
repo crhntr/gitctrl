@@ -16,7 +16,7 @@ func main() {
 		fn = func() { statuses(*repo) }
 	case "remote-origin-must-ssh":
 		fn = func() { remoteOriginMustSSH(*repo) }
-	case "multi-branch-edit", "mbe":
+	case "multi-branch-view-file", "mbvf":
 		fn = func() { multibranchedit(repo) }
 	default:
 		fn = func() { fmt.Println("command not known") }
