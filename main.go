@@ -17,7 +17,7 @@ func main() {
 	case "remote-origin-must-ssh":
 		fn = func() { remoteOriginMustSSH(*repo) }
 	case "multi-branch-view-file", "mbvf":
-		fn = func() { multibranchedit(repo) }
+		fn = func() { multibranchviewfile(repo) }
 	default:
 		fn = func() { fmt.Println("command not known") }
 	}
