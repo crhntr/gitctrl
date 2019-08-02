@@ -1,20 +1,26 @@
 package main
 
-import "flag"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
+
+	var fn func()
+	repo := flag.String("repo", ".", "path to repo")
 	flag.Parse()
-	command := flag.Arg(0)
 
-	wd := "./"
-	if len(flag.Args()) > 1 {
-		wd = flag.Arg(1)
-	}
-
-	switch command {
+	switch flag.Arg(0) {
 	case "statuses":
-		statuses(wd)
+		fn = func() { statuses(*repo) }
 	case "remote-origin-must-ssh":
-		remoteOriginMustSSH(wd)
+		fn = func() { remoteOriginMustSSH(*repo) }
+	case "multi-branch-view-file", "mbvf":
+		fn = func() { multibranchviewfile(repo) }
+	default:
+		fn = func() { fmt.Println("command not known") }
 	}
+
+	fn()
 }
